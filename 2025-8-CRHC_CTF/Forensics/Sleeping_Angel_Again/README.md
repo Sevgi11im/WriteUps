@@ -4,7 +4,7 @@
 **Points**      : 495<br>
 **Author**      : 夜有夢
 
-A faint signal was captured. Nothing more, nothing less.
+Uto has fallen asleep again. Can you wake her up once more?
 
 **Attachment** :
  - [Uto2.eml](files/dist/Uto2.eml)
