@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-# quiet_try_decrypt.py
 # Brute force OpenSSL enc decryption options and only report candidates
-# that contain IHDR/IDAT/IEND/RIFF in their output.
+# that contain PNG/IHDR/IDAT/IEND/RIFF in their output.
 
 import subprocess, re, os, sys
 
@@ -24,7 +23,6 @@ def get_ciphers():
         print("Failed to list openssl ciphers")
         sys.exit(1)
     text = out.decode(errors="ignore")
-    # Only keep cipher-like tokens (skip 'Supported', 'ciphers', etc.)
     parts = text.split(":", 1)[1] if ":" in text else text
     return [t for t in re.split(r"\s+", parts.strip())
             if re.match(r"^[a-z0-9\-]+$", t)]
@@ -49,7 +47,7 @@ for cipher in ciphers:
                     f.write(out)
 
 # Now scan all candidates for useful signatures
-patterns = (b"IEND",)
+patterns = (b"IHDR", b"IHDR", b"IDAT", b"IEND", b"RIFF",)
 hits = {}
 
 for fname in os.listdir(OUTDIR):
@@ -64,7 +62,7 @@ for fname in os.listdir(OUTDIR):
         pass
 
 if hits:
-    print(f"Possible valid decryptions, found patterns in:")
+    print(f"Possible valid decryptions, found {patterns} in:")
     for h, found in hits.items():
         print(f"- {h} # found {', '.join(found)}")
 else:
