@@ -1,7 +1,7 @@
 # Forgot Password
 
-**Category**		: Forensic 	
-**Points**			: 12
+**Category**		: Forensic<br>
+**Points**			: 12<br>
 **Author**		: _purposely left empty_
 
 Teman saya lupa passwordnya, yang dia ingat 8 karakter (Uppercase, Number). Tolong bantu pecahkan, terimakasih dan youRock!
