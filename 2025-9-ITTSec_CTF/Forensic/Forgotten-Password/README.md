@@ -9,7 +9,7 @@ Teman saya lupa passwordnya, yang dia ingat 8 karakter (Uppercase, Number). Tolo
 Format Flag: `ITTSec{passwordnya}`
 
 ### Reconnaissance
-We were given a `.cap` file, which I renamed to `.pcap` for easier handling in Wireshark.  
+We were given a [`.cap`](files/dist/handshake_ITTSec_7A-76-18-23-9F-91_2025-09-08T13-56-54.cap) file, which I renamed to `.pcap` for easier handling in Wireshark.  
 Opening it, the protocol column clearly shows `802.11`, with many packets labeled as `Beacon frame` containing an `SSID`. These are strong indicators that the capture records Wi-Fi traffic. 
 
 Based from the decryption, this challenge idea is Wi-Fi password cracking, and "youRock" clearly hinting us to use RockYou as our wordlist. Before that, let's gather some info.
